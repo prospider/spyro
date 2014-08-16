@@ -14,11 +14,8 @@ angular.module('spyro.routes', ['ngRoute', 'simpleLogin'])
         user: ['simpleLogin', function(simpleLogin) {
           return simpleLogin.getUser();
         }]
-      }
-    },
-    '/chat': {
-      templateUrl: 'partials/chat.html',
-      controller: 'ChatCtrl'
+      },
+      authRequired: true
     },
     '/login': {
       templateUrl: 'partials/login.html',

@@ -16,7 +16,7 @@ angular.module('spyro.controllers', ['firebase.utils', 'simpleLogin'])
     };
 
     $scope.addMessage = function() {
-      messageList.addMessage($scope.newMessage);
+      messageList.addMessage($scope.newMessage, user);
       $scope.addmessageform.$setPristine();
       $scope.newMessage = null;
     };

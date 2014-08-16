@@ -1,0 +1,32 @@
+<form role="form" name="addmessageform" ng-submit="addMessage()" novalidate>
+    <div class="form-group">
+        <label class="radio-inline">
+            <input type="radio" name="typeRadio" ng-model="newMessage.type" value="call" required><i class="fa fa-phone"></i> Call
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="typeRadio" ng-model="newMessage.type" value="customer" required><i class="fa fa-user"></i> Walk-in
+        </label>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-pencil"></i></div>
+            <input type="text" class="form-control" ng-model="newMessage.recipient" placeholder="Recipient" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-user"></i></div>
+            <input type="text" class="form-control" ng-model="newMessage.sender" placeholder="Name" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <textarea class="form-control" ng-model="newMessage.text" placeholder="Enter message" required></textarea>
+    </div>
+    <div class="form-group" ng-show="newMessage.type === 'call'">
+        <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+            <input type="text" class="form-control" ng-model="newMessage.callback" placeholder="867-5309">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-scheme">Add</button>
+</form>

@@ -2,7 +2,9 @@
 @scheme_darkgrey: #464646;
 @scheme_grey: #5B605F;
 @scheme_lightgrey: #A1A194;
-@scheme_white: #FCF9F0;
+@scheme_white: #F2F2F2;
+
+@sidebar_control_width: 20%;
 
 .box-shadow(@colour) {
     -webkit-box-shadow: inset 0 1px 1px @colour;
@@ -76,10 +78,44 @@ message {
     border-color: #3c763d;
 }
 
+.panel-footer {
+    color: @scheme_lightgrey;
+    font-style: italic;
+}
+
+hr.short {
+    width: 100px;
+    border-color: @scheme_darkgrey;
+}
+
 .red {
     color: red;
 }
 
 .red:hover {
     .red();
+}
+
+.affix-top {
+    position: static;
+
+    .input-group .form-control {
+        width: @sidebar_control_width;
+    }
+    .form-control {
+        width: @sidebar_control_width;
+    }
+}
+
+.affix {
+    position: fixed;
+    width: auto;
+    top: 0;
+
+    .input-group .form-control {
+        width: @sidebar_control_width;
+    }
+    .form-control {
+        width: @sidebar_control_width;
+    }
 }

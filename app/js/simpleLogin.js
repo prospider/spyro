@@ -45,7 +45,6 @@ angular.module('simpleLogin', ['firebase', 'firebase.utils', 'changeEmail'])
         },
 
         loginGoogle: function() {
-          console.log("Logging in Google");
           return auth.$login('google');
         },
 
