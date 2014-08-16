@@ -24,6 +24,10 @@
             creatorDisplayName: user.displayName
           });
         };
+     }])
+
+     .service('userList', ['fbutil', function(fbutil) {
+      this.users = fbutil.syncArray('users');
      }]);
 
 })();

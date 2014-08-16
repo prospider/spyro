@@ -10,8 +10,8 @@ angular.module('simpleLogin', ['firebase', 'firebase.utils', 'changeEmail'])
     }
   }])
 
-  .factory('simpleLogin', ['$firebaseSimpleLogin', 'fbutil', 'createProfile', 'changeEmail', '$q', '$rootScope',
-    function($firebaseSimpleLogin, fbutil, createProfile, changeEmail, $q, $rootScope) {
+  .factory('simpleLogin', ['$firebaseSimpleLogin', 'fbutil', 'createProfile', 'changeEmail', '$q', '$rootScope', '$log',  
+    function($firebaseSimpleLogin, fbutil, createProfile, changeEmail, $q, $rootScope, $log) {
       var auth = $firebaseSimpleLogin(fbutil.ref());
       var listeners = [];
 
@@ -50,6 +50,17 @@ angular.module('simpleLogin', ['firebase', 'firebase.utils', 'changeEmail'])
 
         logout: function() {
           auth.$logout();
+        },
+
+        createAccountIfNecessary: function(user) {
+          var account = fbutil.syncObject(['users', user.uid]);
+          console.dir(account);
+          if(account.$value === undefined) {
+            // Account doesn't exist
+            account.name = user.displayName;
+            account.email = user.email;
+            account.$save();
+          }
         },
 
         createAccount: function(email, pass, name) {

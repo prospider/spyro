@@ -10,17 +10,22 @@
     <div class="form-group">
         <div class="input-group">
             <div class="input-group-addon"><i class="fa fa-pencil"></i></div>
-            <input type="text" class="form-control" ng-model="newMessage.recipient" placeholder="Recipient" required>
+            <input  type="text"
+                    class="form-control"
+                    ng-model="newMessage.recipient"
+                    typeahead="user.name as user.name for user in users | filter:{name:$viewValue}"
+                    placeholder="Recipient"
+                    required>
         </div>
     </div>
     <div class="form-group">
         <div class="input-group">
             <div class="input-group-addon"><i class="fa fa-user"></i></div>
-            <input type="text" class="form-control" ng-model="newMessage.sender" placeholder="Name" required>
+            <input type="text" class="form-control span-4" ng-model="newMessage.sender" placeholder="Name" required>
         </div>
     </div>
     <div class="form-group">
-        <textarea class="form-control" ng-model="newMessage.text" placeholder="Enter message" required></textarea>
+        <textarea class="form-control span-4" ng-model="newMessage.text" placeholder="Enter message" required></textarea>
     </div>
     <div class="form-group" ng-show="newMessage.type === 'call'">
         <div class="input-group">

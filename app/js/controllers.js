@@ -2,12 +2,13 @@
 
 /* Controllers */
 
-angular.module('spyro.controllers', ['firebase.utils', 'simpleLogin'])
-  .controller('HomeCtrl', ['$scope', 'fbutil', 'user', 'simpleLogin', 'FBURL', 'messageList',
-    function($scope, fbutil, user, simpleLogin, FBURL, messageList) {
+angular.module('spyro.controllers', ['firebase.utils', 'simpleLogin', 'ui.bootstrap'])
+  .controller('HomeCtrl', ['$scope', 'fbutil', 'user', 'simpleLogin', 'FBURL', 'messageList', 'userList',
+    function($scope, fbutil, user, simpleLogin, FBURL, messageList, userList) {
     $scope.user = user;
     $scope.FBURL = FBURL;
     $scope.messages = messageList.messages;
+    $scope.users = userList.users;
     $scope.newMessage = null;
 
     // expose logout function to scope
@@ -19,15 +20,6 @@ angular.module('spyro.controllers', ['firebase.utils', 'simpleLogin'])
       messageList.addMessage($scope.newMessage, user);
       $scope.addmessageform.$setPristine();
       $scope.newMessage = null;
-    };
-  }])
-
-  .controller('ChatCtrl', ['$scope', 'messageList', function($scope, messageList) {
-    $scope.messages = messageList;
-    $scope.addMessage = function(newMessage) {
-      if( newMessage ) {
-        $scope.messages.$add({text: newMessage});
-      }
     };
   }])
 
@@ -50,15 +42,23 @@ angular.module('spyro.controllers', ['firebase.utils', 'simpleLogin'])
     $scope.loginGoogle = function() {
       $scope.err = null;
       simpleLogin.loginGoogle()
-        .then(function(/* user */) {
+        .then(function(user) {
+          console.log("phase 1");
+          $scope.createAccountIfNecessary(user);
+          console.log("phase 2");
           $location.path('/home');
         }, function(err) {
           $scope.err = errMessage(err);
         });
     };
 
+    $scope.createAccountIfNecessary = function(user) {
+      simpleLogin.createAccountIfNecessary(user);
+    };
+
     $scope.createAccount = function() {
       $scope.err = null;
+
       if( assertValidAccountProps() ) {
         simpleLogin.createAccount($scope.email, $scope.pass)
           .then(function(/* user */) {
@@ -85,6 +85,10 @@ angular.module('spyro.controllers', ['firebase.utils', 'simpleLogin'])
     function errMessage(err) {
       return angular.isObject(err) && err.code? err.code : err + '';
     }
+  }])
+
+  .controller('TestCtrl', ['$scope', 'fbutil', function($scope, fbutil) {
+    /* Save for debugging purposes */
   }])
 
   .controller('AccountCtrl', ['$scope', 'simpleLogin', 'fbutil', 'user', '$location',
