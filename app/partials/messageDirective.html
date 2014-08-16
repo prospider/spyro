@@ -4,7 +4,7 @@
             <i class="fa fa-phone fa-invert" ng-show="message.type === 'call'"></i>
             <i class="fa fa-user fa-invert" ng-show="message.type === 'customer'"></i>
              for
-             {{message.recipient}}
+             {{message.recipientDisplayName}}
          </h3>
     </div>
     <div class="panel-body">
@@ -13,6 +13,10 @@
         <footer>{{message.sender}}</footer>
         </blockquote>
         <p class="lead" ng-show="message.callback !== 'none'">{{message.callback}}</p>
+        <button type="button" ng-click="deleteMessage(message)" ng-show="user.uid === message.recipientUid" class="btn btn-scheme">
+            <i class="fa fa-check-circle fa-inverted"></i>
+            Got it!
+        </button>
     </div>
     <div class="panel-footer text-right">
         {{message.creatorDisplayName}}

@@ -1,4 +1,4 @@
-<form role="form" name="addmessageform" ng-submit="addMessage()" novalidate>
+<form role="form" name="addmessageform" ng-submit="addMessage(newMessage)" novalidate>
     <div class="form-group">
         <label class="radio-inline">
             <input type="radio" name="typeRadio" ng-model="newMessage.type" value="call" required><i class="fa fa-phone"></i> Call
@@ -13,11 +13,12 @@
             <input  type="text"
                     class="form-control"
                     ng-model="newMessage.recipient"
-                    typeahead="user.name as user.name for user in users | filter:{name:$viewValue}"
+                    typeahead="user as user.name for user in users | filter:{name:$viewValue}"
                     placeholder="Recipient"
                     required>
         </div>
     </div>
+    <pre>{{newMessage.recipient}}</pre>
     <div class="form-group">
         <div class="input-group">
             <div class="input-group-addon"><i class="fa fa-user"></i></div>

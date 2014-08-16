@@ -18,7 +18,8 @@
     "firebase": "~1.0.x",
     "firebase-simple-login": "~1.6.x",
     "angularfire": "~0.8.x",
-    "mockfirebase": "~0.2.9"
+    "mockfirebase": "~0.2.9",
+    "angular-bootstrap": "~0.11.0"
   },
   "authors": [
     "David Bel <dbel.tbay@gmail.com>"

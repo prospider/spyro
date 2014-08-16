@@ -16,11 +16,15 @@ angular.module('spyro.controllers', ['firebase.utils', 'simpleLogin', 'ui.bootst
       simpleLogin.logout();
     };
 
-    $scope.addMessage = function() {
-      messageList.addMessage($scope.newMessage, user);
+    $scope.addMessage = function(newMessage) {
+      messageList.addMessage(newMessage, user);
       $scope.addmessageform.$setPristine();
       $scope.newMessage = null;
     };
+
+    $scope.deleteMessage = function(message) {
+      messageList.deleteMessage(message);
+    }
   }])
 
   .controller('LoginCtrl', ['$scope', 'simpleLogin', '$location', function($scope, simpleLogin, $location) {
