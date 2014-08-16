@@ -1,0 +1,17 @@
+<div class="panel panel-primary panel-scheme-blue">
+    <div class="panel-heading">
+        <h4 class="title">
+            <i class="fa fa-phone fa-invert" ng-show="message.type === 'call'"></i>
+            <i class="fa fa-user fa-invert" ng-show="message.type === 'customer'"></i>
+             for
+             {{message.recipient}}
+         </h3>
+    </div>
+    <div class="panel-body">
+        <blockquote>
+        <p>{{message.text}}</p>
+        <footer>{{message.sender}}</footer>
+        </blockquote>
+        <p class="lead" ng-show="message.callback !== 'none'">{{message.callback}}</p>
+    </div>
+</div>
