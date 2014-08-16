@@ -1,0 +1,15 @@
+<div class="col-sm-4">
+    <div class="container" data-spy="affix" data-offset-top="226"> 
+        <h1>Welcome</h1>
+        <p class="status good" ng-show-auth>Hello, <a href="#/account">{{user.displayName}}</a>. [<a class="red" href="" ng-click="logout()">logout</a>]</p>
+        <p class="status" ng-hide-auth>Welcome. You are not <a href="#/login">logged in</a></p>
+        <h4>New Message</h4>
+        <new-message-form></new-message-form>
+    </div>
+</div>
+
+<div class="col-sm-8">
+    <div ng-repeat="message in messages | reverse">
+        <message></message>
+    </div>
+</div>
