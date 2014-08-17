@@ -19,7 +19,9 @@
     "firebase-simple-login": "~1.6.x",
     "angularfire": "~0.8.x",
     "mockfirebase": "~0.2.9",
-    "angular-bootstrap": "~0.11.0"
+    "angular-bootstrap": "~0.11.0",
+    "angular-bootstrap-affix": "~0.2.1",
+    "angular-jquery": "~0.2.1"
   },
   "authors": [
     "David Bel <dbel.tbay@gmail.com>"

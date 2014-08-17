@@ -1,4 +1,4 @@
-<form role="form" name="addmessageform" ng-submit="addMessage(newMessage)" novalidate>
+<div class="col-sm-3"><form role="form" name="addmessageform" ng-submit="addMessage(newMessage)" novalidate>
     <div class="form-group">
         <label class="radio-inline">
             <input type="radio" name="typeRadio" ng-model="newMessage.type" value="call" required><i class="fa fa-phone"></i> Call
@@ -18,7 +18,6 @@
                     required>
         </div>
     </div>
-    <pre>{{newMessage.recipient}}</pre>
     <div class="form-group">
         <div class="input-group">
             <div class="input-group-addon"><i class="fa fa-user"></i></div>
@@ -35,4 +34,4 @@
         </div>
     </div>
     <button type="submit" class="btn btn-scheme">Add</button>
-</form>
+</form></div>

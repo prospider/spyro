@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
+  <title>Spyro</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
@@ -22,6 +22,12 @@
         <a href="#/home">Spyro</a>
       </h1>
     </div>
+  </div>
+  <div class="container-fluid background-scheme" ng-controller="MenuCtrl">
+      <ul class="nav nav-tabs" role="tablist">
+        <li ng-class="{active: currentRoute('/home')}"><a ng-click="changeRoute('/home')">Home</a></li>
+        <li ng-class="{active: currentRoute('/account')}"><a ng-click="changeRoute('/account')">Account</a></li>
+      </ul>
   </div>
 
   <div class="container">
@@ -43,6 +49,8 @@
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="bower_components/less/dist/less-1.7.4.min.js"></script>
   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="bower_components/angular-jquery/dist/angular-jquery.min.js"></script>
+  <script src="bower_components/angular-bootstrap-affix/dist/angular-bootstrap-affix.min.js"></script>
 
   <script src="js/app.js"></script>
   <script src="js/config.js"></script>

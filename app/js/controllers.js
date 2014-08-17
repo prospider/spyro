@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('spyro.controllers', ['firebase.utils', 'simpleLogin', 'ui.bootstrap'])
+angular.module('spyro.controllers', ['firebase.utils', 'simpleLogin', 'ui.bootstrap', 'mgcrea.bootstrap.affix'])
   .controller('HomeCtrl', ['$scope', 'fbutil', 'user', 'simpleLogin', 'FBURL', 'messageList', 'userList',
     function($scope, fbutil, user, simpleLogin, FBURL, messageList, userList) {
     $scope.user = user;
@@ -93,6 +93,23 @@ angular.module('spyro.controllers', ['firebase.utils', 'simpleLogin', 'ui.bootst
 
   .controller('TestCtrl', ['$scope', 'fbutil', function($scope, fbutil) {
     /* Save for debugging purposes */
+  }])
+
+  .controller('MenuCtrl', ['$scope', '$location', '$route', 'simpleLogin',
+    function($scope, $location, $route, simpleLogin) {
+      $scope.logout = function() {
+        simpleLogin.logout();
+        $location.path('/login');
+      };
+
+      $scope.currentRoute = function(route) {
+        return (route === $location.path());
+      };
+
+      $scope.changeRoute = function(route) {
+        $location.path(route);
+        $route.reload();
+      }
   }])
 
   .controller('AccountCtrl', ['$scope', 'simpleLogin', 'fbutil', 'user', '$location',

@@ -1,12 +1,12 @@
-@scheme_blue: #068587;
+@scheme_blue: #334D5C;
+@scheme_green: #45B29D;
+@scheme_yellow: #EFC94C;
 @scheme_darkgrey: #464646;
 @scheme_grey: #5B605F;
 @scheme_lightgrey: #A1A194;
 @scheme_white: #F2F2F2;
 
 @font: 'Open Sans';
-
-@sidebar_control_width: 20%;
 
 .box-shadow(@colour) {
     -webkit-box-shadow: inset 0 1px 1px @colour;
@@ -43,6 +43,7 @@ body {
 
 .jumbotron {
     background-color: @scheme_blue;
+    margin-bottom: 0;
 
     h1 {
         font-weight: 700;
@@ -58,15 +59,43 @@ body {
     }
 }
 
+.background-scheme {
+    background-color: @scheme_blue;
+    color: white;
+    margin-bottom: 30px;
+    padding-bottom: none;
+
+    .btn-default {
+        color: @scheme_grey;
+    }
+
+    .nav-tabs {
+        border-bottom: none;
+
+        li {
+            a {
+                color: white;
+            }
+            a:hover {
+                background-color: inherit;
+                border-color: @scheme_white;
+            }
+        }
+
+        li.active {
+            a {
+                background-color: @scheme_white;
+                color: @scheme_blue;
+            }
+        }
+    }
+}
+
 message {
     div.panel.panel-scheme-blue {
         .panel-heading {
             background-color: @scheme_blue;
-            border-color: @scheme_blue;
             color: @scheme_white;
-        }
-        .panel-body {
-            color: @scheme_darkgrey;
         }
     }
 }
@@ -111,38 +140,21 @@ hr.short {
 
 .red:hover {
     .red();
-}
-
-.input-group .form-control {
-    max-width: 20%;
-}
-
-.form-control {
-    max-width: 20%;
-}
+}   
 
 .affix-top {
     position: static;
-
-    .input-group .form-control {
-        width: @sidebar_control_width;
-    }
-    .form-control {
-        width: @sidebar_control_width;
-    }
 }
 
 .affix {
     position: fixed;
     width: auto;
     top: 0;
+}
 
-    .input-group .form-control {
-        width: @sidebar_control_width;
-    }
-    .form-control {
-        width: @sidebar_control_width;
-    }
+.breadcrumb {
+    background-color: transparent;
+    margin-bottom: 5px;
 }
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
