@@ -79,4 +79,11 @@ angular.module('spyro.directives', ['simpleLogin'])
       restrict: 'E',
       templateUrl: 'partials/newMessageFormDirective.html'
     };
+  })
+
+  .directive('notifications', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'partials/notificationsDirective.html'
+    };
   });

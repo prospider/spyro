@@ -12,7 +12,7 @@
         <p>{{message.text}}</p>
         <footer>{{message.sender}} <div ng-show="message.callback !== 'none'">({{message.callback}})</div></footer>
         </blockquote>
-        <button type="button" ng-click="deleteMessage(message)" ng-show="user.uid === message.recipientUid" class="btn btn-scheme">
+        <button type="button" ng-click="deleteMessage(message)" ng-show="user.uid === message.recipientUid" class="btn btn-success">
             <i class="fa fa-check-circle fa-inverted"></i>
             Got it!
         </button>

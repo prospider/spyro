@@ -8,10 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet/less" type="text/css" href="css/app.less" />
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet/less" type="text/css" href="css/app-2.less" />
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body ng-cloak>
@@ -20,10 +19,12 @@
     <div class="container text-center">
       <h1>
         <a href="#/home">Spyro</a>
+        <center><hr class="short"></center>
+        <h4>An easy while-you-were-out application.</h4>
       </h1>
     </div>
   </div>
-  <div class="container-fluid background-scheme" ng-controller="MenuCtrl">
+  <div class="container-fluid spyro-tabs" ng-controller="MenuCtrl">
       <ul class="nav nav-tabs" role="tablist">
         <li ng-class="{active: currentRoute('/home')}"><a ng-click="changeRoute('/home')">Home</a></li>
         <li ng-class="{active: currentRoute('/account')}"><a ng-click="changeRoute('/account')">Account</a></li>

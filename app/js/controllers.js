@@ -3,13 +3,14 @@
 /* Controllers */
 
 angular.module('spyro.controllers', ['firebase.utils', 'simpleLogin', 'ui.bootstrap', 'mgcrea.bootstrap.affix'])
-  .controller('HomeCtrl', ['$scope', 'fbutil', 'user', 'simpleLogin', 'FBURL', 'messageList', 'userList',
-    function($scope, fbutil, user, simpleLogin, FBURL, messageList, userList) {
+  .controller('HomeCtrl', ['$scope', 'fbutil', 'user', 'simpleLogin', 'FBURL', 'messageList', 'userList', 'notificationList',
+    function($scope, fbutil, user, simpleLogin, FBURL, messageList, userList, notificationList) {
     $scope.user = user;
     $scope.FBURL = FBURL;
     $scope.messages = messageList.messages;
     $scope.users = userList.users;
     $scope.newMessage = null;
+    $scope.notifications = notificationList.getNotifications(user.uid);
 
     // expose logout function to scope
     $scope.logout = function() {

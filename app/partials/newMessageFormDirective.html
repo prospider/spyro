@@ -1,9 +1,9 @@
 <div class="col-sm-3"><form role="form" name="addmessageform" ng-submit="addMessage(newMessage)" novalidate>
     <div class="form-group">
-        <label class="radio-inline">
+        <label class="radio-inline" required>
             <input type="radio" name="typeRadio" ng-model="newMessage.type" value="call" required><i class="fa fa-phone"></i> Call
         </label>
-        <label class="radio-inline">
+        <label class="radio-inline" required>
             <input type="radio" name="typeRadio" ng-model="newMessage.type" value="customer" required><i class="fa fa-user"></i> Walk-in
         </label>
     </div>
@@ -33,5 +33,5 @@
             <input type="text" class="form-control" ng-model="newMessage.callback" placeholder="867-5309">
         </div>
     </div>
-    <button type="submit" class="btn btn-scheme">Add</button>
+    <button type="submit" class="btn btn-primary">Add</button>
 </form></div>
