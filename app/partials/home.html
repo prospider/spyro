@@ -1,8 +1,10 @@
 <div class="col-sm-4">
     <div class="container"> 
-        <h1>Welcome <notifications></notifications></h1>
+        <h1>Welcome</h1>
         <p class="status good" ng-show-auth>Hello, <a href="#/account">{{user.displayName}}</a>. [<a class="red" href="" ng-click="logout()">logout</a>]</p>
         <p class="status" ng-hide-auth>Welcome. You are not <a href="#/login">logged in</a></p>
+        <span class="label label-danger label-notification" ng-show="notifications.length > 0" ng-click="readNotifications()">{{notifications.length}} unread</span>
+        <notifications ng-show="showNotifications"></notifications>
         <h4>New Message</h4>
         <new-message-form></new-message-form>
     </div>

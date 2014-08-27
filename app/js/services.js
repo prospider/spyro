@@ -26,6 +26,7 @@
           }).then(function(ref) {
             notificationList.addNotification(
               ref.name(),
+              newMessage,
               notificationList.getNotifications(newMessage.recipient.$id)
             );
           });
@@ -42,13 +43,15 @@
         return fbutil.syncArray('notifications/' + userUid, {limit: 10, endAt: null});
       };
 
-      this.addNotification = function(id, notificationArray) {
+      this.addNotification = function(id, msg, notificationArray) {
         notificationArray.$add({
-          messageId: id
+          messageId: id,
+          type: msg.type,
+          sender: msg.sender
         });
       };
 
-      this.removeNotification = function(notification, notificationArray) {
+      this.deleteNotification = function(notification, notificationArray) {
         notificationArray.$remove(notification);
       };
      }])

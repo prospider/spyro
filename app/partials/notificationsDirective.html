@@ -1,6 +1,9 @@
-<button
-class="btn btn-danger"
-ng-show="notifications.length > 0" 
-popover="">
-	{{notifications.length}} unread
-</span>
+<div class="container">
+	<div class="list-group col-xs-3">
+		<a class="list-group-item" ng-repeat="notification in notifications">
+			<i class="fa fa-phone fa-invert" ng-show="notification.type === 'call'"></i>
+	        <i class="fa fa-user fa-invert" ng-show="notification.type === 'customer'"></i>
+	        {{notification.sender}}
+		</a>
+	</div>
+</div>
