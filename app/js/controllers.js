@@ -28,13 +28,17 @@ angular.module('spyro.controllers', ['firebase.utils', 'simpleLogin', 'ui.bootst
       messageList.deleteMessage(message);
       var messageId = message.$id;
       var notification = $filter('findByMessageId')($scope.notifications, messageId);
-      console.log("Deleting notification: " + notification);
-      notificationList.deleteNotification(notification);
+      //console.log("Deleting notification: " + notification);
+      //notificationList.deleteNotification(notification);
     };
 
     $scope.readNotifications = function() {
       $scope.showNotifications = !$scope.showNotifications;
-    }
+    };
+
+    $scope.clearNotifications = function() {
+      notificationList.clearNotifications($scope.notifications);
+    };
   }])
 
   .controller('LoginCtrl', ['$scope', 'simpleLogin', '$location', function($scope, simpleLogin, $location) {

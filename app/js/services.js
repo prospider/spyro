@@ -44,15 +44,26 @@
       };
 
       this.addNotification = function(id, msg, notificationArray) {
+        var callback = msg.callback || "none";
+
         notificationArray.$add({
           messageId: id,
           type: msg.type,
-          sender: msg.sender
+          sender: msg.sender,
+          callback: callback
         });
       };
 
       this.deleteNotification = function(notification, notificationArray) {
         notificationArray.$remove(notification);
+      };
+
+      this.clearNotifications = function(notificationArray) {
+        for(var i = 0; i < notificationArray.length; i++) {
+          notificationArray.$remove(i).then(function(ref){
+            console.log("Removed " + ref.name());
+          });
+        }
       };
      }])
 

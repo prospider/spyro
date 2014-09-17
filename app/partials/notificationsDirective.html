@@ -3,7 +3,8 @@
 		<a class="list-group-item" ng-repeat="notification in notifications">
 			<i class="fa fa-phone fa-invert" ng-show="notification.type === 'call'"></i>
 	        <i class="fa fa-user fa-invert" ng-show="notification.type === 'customer'"></i>
-	        {{notification.sender}}
+	        {{notification.sender}} 
+	        <span ng-show="notification.type == 'call'">({{notification.callback}})</span>
 		</a>
 	</div>
 </div>
