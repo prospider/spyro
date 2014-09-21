@@ -1,6 +1,5 @@
 <div class="col-sm-4">
     <div class="container"> 
-        <h1>Welcome</h1>
         <p class="status good" ng-show-auth>Hello, <a href="#/account">{{user.displayName}}</a>. [<a class="red" href="" ng-click="logout()">logout</a>]</p>
         <p class="status" ng-hide-auth>Welcome. You are not <a href="#/login">logged in</a></p>
         <div ng-show="notifications.length > 0">
